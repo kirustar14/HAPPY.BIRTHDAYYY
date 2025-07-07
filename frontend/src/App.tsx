@@ -16,7 +16,7 @@ export default function App() {
   const [orientation, setOrientation] = useState<"white" | "black">("white");
   const [fen, setFen] = useState("start");
   const [banner, setBanner] = useState<string | null>(null);
-  const ws = useRef<WebSocket>();
+  const ws = useRef<WebSocket | null>(null);
 
   useEffect(() => {
     document.title = "Happy Bday :)";
