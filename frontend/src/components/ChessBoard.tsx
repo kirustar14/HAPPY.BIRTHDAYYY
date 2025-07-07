@@ -9,15 +9,17 @@ type Props = {
 
 export default function ChessBoard({ fen, orientation, onDrop }: Props) {
   return (
-    <Chessboard
-      position={fen}
-      boardOrientation={orientation}
-      onPieceDrop={(s, t) => {
-        onDrop(s, t);
-        return true;
-      }}
-      customPieces={customPieces}
-      boardWidth={450}
-    />
+    <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
+      <Chessboard
+        position={fen}
+        boardOrientation={orientation}
+        onPieceDrop={(s, t) => {
+          onDrop(s, t);
+          return true;
+        }}
+        customPieces={customPieces}
+        boardWidth={600} 
+      />
+    </div>
   );
 }
