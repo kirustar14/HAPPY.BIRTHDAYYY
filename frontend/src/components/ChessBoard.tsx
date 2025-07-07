@@ -18,7 +18,13 @@ export default function ChessBoard({ fen, orientation, onDrop }: Props) {
           return true;
         }}
         customPieces={customPieces}
-        boardWidth={600} 
+        boardWidth={600}
+        customDarkSquareStyle={{
+          backgroundColor: "#e3f8ff",
+        }}
+        customLightSquareStyle={{
+          backgroundColor: "#fa6666",
+        }}
       />
     </div>
   );
