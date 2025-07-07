@@ -48,7 +48,7 @@ export default function App() {
   };
 
   const createGame = async () => {
-    const res = await fetch("/create", { method: "POST" });
+    const res = await fetch("https://happy-birthdayyy-backend.onrender.com/create", {method: "POST",});
     const { pin } = await res.json();
     setPin(pin);
     openWS(pin);
