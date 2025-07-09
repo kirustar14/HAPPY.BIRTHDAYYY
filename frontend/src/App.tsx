@@ -17,10 +17,6 @@ export default function App() {
   const [fen, setFen] = useState("start");
   const [banner, setBanner] = useState<string | null>(null);
   const ws = useRef<WebSocket | null>(null);
-  const [pendingPromotion, setPendingPromotion] = useState<{
-    from: string;
-    to: string;
-  } | null>(null);
 
   useEffect(() => {
     document.title = "Happy Bday :)";
@@ -29,18 +25,7 @@ export default function App() {
   const onPieceDrop = (src: string, dst: string) => {
     if (banner) return;
 
-    const sourceRank = parseInt(src[1]);
-    const targetRank = parseInt(dst[1]);
-    const isWhite = orientation === "white";
-    const isPromotion =
-      (isWhite && sourceRank === 7 && targetRank === 8) ||
-      (!isWhite && sourceRank === 2 && targetRank === 1);
-
-    if (isPromotion) {
-      setPendingPromotion({ from: src, to: dst });
-    } else {
-      ws.current?.send(JSON.stringify({ uci: src + dst }));
-    }
+    ws.current?.send(JSON.stringify({ uci: src + dst }));
   };
 
 
